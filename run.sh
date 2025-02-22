@@ -2,4 +2,13 @@
 
 echo $1
 
-java -cp target/demo-0.0.1-SNAPSHOT.jar -Dloader.main=org.fogbeam.demo.$1Application  org.springframework.boot.loader.PropertiesLauncher
+if [ -z $1 ]
+then
+
+    java -cp target/demo-1.0.0.jar -Dloader.main=org.fogbeam.demo.ListAppsApplication  org.springframework.boot.loader.launch.PropertiesLauncher
+
+else
+    
+    java -cp target/demo-1.0.0.jar -Dloader.main=org.fogbeam.demo.$1Application  org.springframework.boot.loader.launch.PropertiesLauncher
+
+fi
